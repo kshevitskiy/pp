@@ -8,14 +8,14 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
     },
-    "types": ["jest", "node", "./scr/types"]
+    "types": ["jest", "node", "ws"]
   },
   "include": [
     "src/**/*.ts",
@@ -25,5 +25,6 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  "exclude": ["tests/e2e", "**/*.spec.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
