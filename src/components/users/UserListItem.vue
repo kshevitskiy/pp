@@ -29,7 +29,7 @@ function handleRemove() {
 </script>
 
 <template>
-  <div :id="user.login" class="user">
+  <div :id="user?.login" class="user">
     <div
       class="flex flex-col items-center justify-between cursor-pointer p-4 duration-300 sm:flex-row sm:py-4 sm:px-8 hover:bg-purple-50"
     >
@@ -39,19 +39,19 @@ function handleRemove() {
         <div class="avatar-content mb-2.5 sm:mb-0 sm:mr-2.5">
           <img
             class="avatar w-20 h-20 rounded-full"
-            :src="user.avatar_url"
-            :alt="user.login"
+            :src="user?.avatar_url"
+            :alt="user?.login"
           />
         </div>
         <div class="user-body flex flex-col mb-4 sm:mb-0 sm:mr-4">
-          <a :href="user.html_url" class="title font-medium no-underline">
-            {{ user.login }}
+          <a :href="user?.html_url" class="title font-medium no-underline">
+            {{ user?.login }}
           </a>
           <div class="skills flex flex-col">
-            <a :href="user.organizations_url" class="subtitle text-slate-500">
+            <a :href="user?.organizations_url" class="subtitle text-slate-500">
               Organizations 💪
             </a>
-            <a :href="user.followers_url" class="subtitle text-slate-500">
+            <a :href="user?.followers_url" class="subtitle text-slate-500">
               Followers
             </a>
           </div>
