@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  @apply text-base min-h-screen bg-blue-50;
+}
+
+.btn {
+  @apply inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base leading-6 text-center border border-gray-200 bg-white hover:border-gray-300 transition duration-300;
+}
+
+.btn.btn--lg {
+  @apply py-3 px-9 text-lg;
+}
+
+.btn-primary {
+  @apply font-medium text-white border-0 bg-gray-700 hover:bg-gray-900;
+}
+
+.btn-success {
+  @apply font-medium text-white border-0 bg-green-600 hover:bg-green-700;
+}
+
+.alert-wrapper {
+  @apply z-50 fixed w-full top-0 left-0 p-4;
+}
+
+.alert {
+  @apply grid gap-2 w-full max-w-lg mx-auto;
+}
+
+.loader {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.875s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(45 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.75s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(90 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.625s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(135 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.5s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(180 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.375s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(225 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.25s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(270 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='-0.125s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='48' y='23' rx='2' ry='2.8' width='4' height='14' transform='rotate(315 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
