@@ -1,27 +1,35 @@
 <script lang="ts" setup>
-import { apiError, ApiError } from '~/service'
+import { ApiError } from '~/service'
 import { computed, ref, watch } from 'vue'
 import { AppStatus } from '~/types/enums'
 import { delay } from '~/assets/utils'
-import Alert from '~/components/common/Alert.vue'
+import Alert from '~/components/common/alert/Alert.vue'
 
 type ErrorDataType<T> = {
   data: T
 }
 
+const props = defineProps<{
+  error: ApiError | null
+}>()
+
+const emit = defineEmits<{ (e: 'update:error', value: null): void }>()
+
 const DEFAULT_DURATION = 3000
 const errors = ref<ErrorDataType<ApiError>[]>([])
 const hasErrors = computed(() => errors.value.length > 0)
 
+defineExpose({ errors, hasErrors, hideErrors })
+
 watch(
-  () => apiError.value,
+  () => props.error,
   (value) => {
     if (value) {
       errors.value.unshift({
         data: value
       })
 
-      apiError.value = null
+      emit('update:error', null)
       hideErrors()
     }
   },

@@ -25,3 +25,8 @@ dist-ssr
 
 # Environment variables
 .env
+
+# Ignore test-related files
+coverage
+cypress/videos
+cypress/screenshots

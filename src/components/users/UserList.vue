@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import Alert from '~/components/common/Alert.vue'
-import UserListItem from '~/components/UserListItem.vue'
+import Alert from '~/components/common/alert/Alert.vue'
+import UserListItem from '~/components/users/UserListItem.vue'
 import { User } from '~/types'
 import { AppStatus } from '~/types/enums'
 import { users, usersCount, pending, useUserList } from '~/composables'
@@ -10,37 +10,33 @@ const { reset } = useUserList()
 const removedUser = ref()
 const followedUser = ref()
 
-function onUserRemove(user: User): void {
-  removedUser.value = user
+function onUserRemove(user?: User) {
+  if (user) {
+    removedUser.value = user
+  }
 }
 
-function onUserFollow(user: User): void {
-  followedUser.value = user
+function onUserFollow(user?: User) {
+  if (user) {
+    followedUser.value = user
+  }
 }
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <div
-      class="w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4"
-    >
+    <div class="users-wrapper">
       <!--User row -->
       <UserListItem
-        v-for="(user, index) in users"
+        v-for="user in users"
         v-bind="{ user }"
         :key="user.login"
-        :class="{ 'border-t border-blue-100': index > 0 }"
         @remove="onUserRemove"
         @follow="onUserFollow"
       />
       <!--User row -->
 
-      <a
-        v-if="usersCount < 10"
-        href="#"
-        class="show-more flex items-center justify-center w-10/12 h-12 mx-auto px-4 text-center no-underline rounded hover:bg-[#f6f8f9] font-medium duration-300"
-        @click.prevent="reset"
-      >
+      <a v-if="usersCount < 10" href="#" class="reset" @click.prevent="reset">
         <Transition name="fade" mode="out-in">
           <span v-if="pending" class="w-12 h-12 mx-auto loader" />
           <span v-else>Reset</span>
@@ -71,3 +67,17 @@ function onUserFollow(user: User): void {
     </Alert>
   </Teleport>
 </template>
+
+<style lang="postcss" scoped>
+.users-wrapper {
+  @apply w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4;
+}
+
+.users-wrapper ::v-deep .user:not(:last-child) {
+  @apply border-b border-blue-100;
+}
+
+.reset {
+  @apply flex items-center justify-center w-10/12 h-12 mx-auto px-4 text-center no-underline rounded hover:bg-gray-100 font-medium duration-300;
+}
+</style>

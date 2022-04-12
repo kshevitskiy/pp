@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`AppError component test suite > snapshot 1`] = `
+{
+  "foo": "bar",
+}
+`;
+
+exports[`mount component 1`] = `
+"<!--teleport start-->
+<!--teleport end-->"
+`;

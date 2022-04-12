@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import UserList from '~/components/UserList.vue'
+import UserList from '~/components/users/UserList.vue'
 
 import { usersCount } from '~/composables/user-list'
 </script>

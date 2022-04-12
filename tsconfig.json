@@ -15,7 +15,7 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "types": ["./scr/types"]
+    "types": ["jest", "node", "./scr/types"]
   },
   "include": [
     "src/**/*.ts",

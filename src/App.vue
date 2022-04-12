@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import AppError from '~/components/system/AppError.vue'
+import { apiError } from '~/service'
+import AppError from '~/components/system/app-error/AppError.vue'
 </script>
 
 <template>
@@ -8,5 +9,5 @@ import AppError from '~/components/system/AppError.vue'
       <Component :is="Component" />
     </Transition>
   </RouterView>
-  <AppError />
+  <AppError v-model:error="apiError" />
 </template>

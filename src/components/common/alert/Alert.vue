@@ -20,6 +20,10 @@ onMounted(async () => {
     visible.value = false
   }
 })
+
+defineExpose({
+  visible
+})
 </script>
 
 <template>

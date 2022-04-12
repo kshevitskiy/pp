@@ -37,9 +37,11 @@ yarn build # to build app for production
 ## Test
 
 ```bash
-yarn test # for unit tests
+yarn test # for unit and e2e tests
 
-yarn test:e2e # for end-2-end tests
+yarn test:unit # for unit tests
+
+yarn test:integration # for e2e tests
 ```
 
 ## Vue 3 + Typescript + Vite

@@ -5,3 +5,9 @@ exports[`suite name > snapshot 1`] = `
   "foo": "bar",
 }
 `;
+
+exports[`user-list composable > snapshot 1`] = `
+{
+  "foo": "bar",
+}
+`;
